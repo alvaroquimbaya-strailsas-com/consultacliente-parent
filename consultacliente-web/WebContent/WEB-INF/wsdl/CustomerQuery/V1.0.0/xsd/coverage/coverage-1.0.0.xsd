@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/coverage/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/coverage/v1"
+	xmlns:cvt="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.0.0">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1"
+		schemaLocation="../common/coverageType-1.0.0.xsd" />
+
+	<xs:element name="coverage" type="tns:coverage_Type"></xs:element>
+	<xs:complexType name="coverage_Type">
+		<xs:sequence>
+			<xs:element name="coverageType" type="cvt:CoverageType_Type"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="coverGrossPremiumAmnt" minOccurs="0"
+				type="xs:decimal">
+			</xs:element>
+			<xs:element name="coverNetPremiumAmnt" minOccurs="0"
+				type="xs:decimal">
+			</xs:element>
+			<xs:element name="coverInsuredAmnt" minOccurs="0" type="xs:decimal">
+			</xs:element>
+			<xs:element name="coverBusinessLineCode" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="coverRiskId" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="waitingPeriodQty" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="CoverFreePeriodQty" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="claimMaxInstallmentQty" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="maxNmbrOfClaimsPerYear" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="CoverDurationQty" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyType/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyType/v1"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	
+	<xs:element name="ThirdPartyType" type="tns:ThirdPartyType_Type"></xs:element>
+	<xs:complexType name="ThirdPartyType_Type">
+		<xs:sequence>
+			<xs:element name="description" minOccurs="0" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

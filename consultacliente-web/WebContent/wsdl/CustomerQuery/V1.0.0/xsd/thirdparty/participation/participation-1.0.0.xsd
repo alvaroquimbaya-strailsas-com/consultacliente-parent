@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/v1"
+	xmlns:tpt="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+	xmlns:rt="http://cardif.bnpparibas.com/lam/schema/common/roleType/v1"
+	xmlns:pm="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+	xmlns:adss="http://cardif.bnpparibas.com/lam/schema/thirdparty/address/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+		schemaLocation="../thirdparty-1.1.0.xsd"></xs:import>
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/common/roleType/v1"
+		schemaLocation="../../common/roleType-1.0.0.xsd"></xs:import>
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+		schemaLocation="../../financialplan/paymentmode/paymentMode-1.0.0.xsd"></xs:import>
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/address/v1"
+		schemaLocation="../address-1.0.0.xsd"></xs:import>
+
+
+	<xs:element name="participation" type="tns:Participation_Type"></xs:element>
+
+	<xs:complexType name="Participation_Type">
+		<xs:sequence>
+			<xs:element name="thirdParty" type="tpt:ThirdParty_Type" minOccurs="0"></xs:element>
+			<xs:element name="roleType" type="rt:RoleType_Type" minOccurs="0"></xs:element>
+			<xs:element name="paymentMode" type="pm:PaymentMode_Type" minOccurs="0"></xs:element>
+			<xs:element name="address" type="adss:Address_Type" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

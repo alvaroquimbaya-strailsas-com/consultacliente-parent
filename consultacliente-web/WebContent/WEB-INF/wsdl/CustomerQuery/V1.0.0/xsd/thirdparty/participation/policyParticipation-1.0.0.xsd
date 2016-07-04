@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/policyParticipation/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/policyParticipation/v1"
+	xmlns:pt="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/v1"
+		schemaLocation="participation-1.0.0.xsd"></xs:import>
+
+	<xs:element name="policyParticipation" type="tns:policyParticipation_Type"></xs:element>
+
+	<xs:complexType name="policyParticipation_Type">
+		<xs:complexContent>
+			<xs:extension base="pt:Participation_Type">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

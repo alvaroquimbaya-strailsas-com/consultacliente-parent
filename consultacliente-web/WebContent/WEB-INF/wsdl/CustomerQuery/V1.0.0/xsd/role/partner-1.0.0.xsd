@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/role/partner/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/role/partner/v1"
+	xmlns:rl="http://cardif.bnpparibas.com/lam/schema/role/v1"
+	elementFormDefault="unqualified">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/role/v1"
+		schemaLocation="role-1.0.0.xsd" />
+
+	<xs:element name="partner" type="tns:Partner_type"></xs:element>
+
+	<xs:complexType name="Partner_type">
+		<xs:complexContent>
+			<xs:extension base="rl:Role_Type">
+		<xs:sequence>
+			<xs:element name='partnerNb' type="xs:string"></xs:element>
+		</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

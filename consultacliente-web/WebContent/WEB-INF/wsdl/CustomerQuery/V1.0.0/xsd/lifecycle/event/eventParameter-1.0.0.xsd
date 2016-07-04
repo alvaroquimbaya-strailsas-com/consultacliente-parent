@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/lifecycle/event/eventParameter/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/lifecycle/event/eventParameter/v1"
+	elementFormDefault="unqualified">
+	<xs:element name="eventParameter" type="tns:eventParameter_Type"></xs:element>
+	<xs:complexType name="eventParameter_Type">
+	</xs:complexType>
+
+</xs:schema>

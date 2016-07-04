@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/RiskUnit/RiskUnitLoan/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/RiskUnit/RiskUnitLoan/v1"
+	xmlns:ru="http://cardif.bnpparibas.com/lam/schema/riskunit/v1"
+	elementFormDefault="qualified">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/riskunit/v1"
+		schemaLocation="riskunit-1.0.0.xsd" />
+
+	<xs:element name="RiskUnitLoan" type="tns:RiskUnitLoan_Type"></xs:element>
+
+	<xs:complexType name="RiskUnitLoan_Type">
+		<xs:complexContent>
+			<xs:extension base="ru:RiskUnit_Type">
+				<xs:sequence>
+					<xs:element name="loanNb" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="loanInstallmentAmnt" type="xs:decimal" minOccurs="0"></xs:element>
+					<xs:element name="loanAmnt" type="xs:decimal" minOccurs="0"></xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+</xs:schema>

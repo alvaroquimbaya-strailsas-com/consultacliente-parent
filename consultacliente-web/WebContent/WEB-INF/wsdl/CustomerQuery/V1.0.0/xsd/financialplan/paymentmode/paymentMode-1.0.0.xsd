@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="PaymentMode" type="tns:PaymentMode_Type"></xs:element>
+	<xs:complexType name="PaymentMode_Type">
+		<xs:sequence>
+			<xs:element name="paymentModeName" type="xs:string"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+</xs:schema>

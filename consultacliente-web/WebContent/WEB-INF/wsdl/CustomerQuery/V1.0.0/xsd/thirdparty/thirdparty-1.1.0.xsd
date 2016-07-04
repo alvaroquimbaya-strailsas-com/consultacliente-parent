@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+	xmlns:tpt="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyType/v1"
+	xmlns:rl="http://cardif.bnpparibas.com/lam/schema/role/v1"
+	xmlns:ad="http://cardif.bnpparibas.com/lam/schema/thirdparty/address/v1"
+	xmlns:pm="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyType/v1"
+		schemaLocation="thirdPartyType-1.0.0.xsd" />
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/role/v1"
+	schemaLocation="../role/role-1.0.0.xsd"/>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/address/v1"
+	schemaLocation="address-1.0.0.xsd"/>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/financialplan/paymentmode/v1"
+	schemaLocation="../financialplan/paymentmode/paymentMode-1.0.0.xsd"/>
+	
+		
+	<xs:element name="ThirdParty" type="tns:ThirdParty_Type"></xs:element>
+	<xs:complexType name="ThirdParty_Type">
+		<xs:sequence>
+			<xs:element name="thirdPartyType" type="tpt:ThirdPartyType_Type" minOccurs="0"></xs:element>
+			<xs:element name="role" type="rl:Role_Type" maxOccurs="unbounded"></xs:element>
+			<xs:element name="address" type="ad:Address_Type" minOccurs="0"></xs:element>
+			<xs:element name="paymentMode" type="pm:PaymentMode_Type" minOccurs="0"></xs:element>
+			<xs:element name="electronicAddressName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="phoneNb" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="thirdPartyFullName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="thirdPartyNb" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

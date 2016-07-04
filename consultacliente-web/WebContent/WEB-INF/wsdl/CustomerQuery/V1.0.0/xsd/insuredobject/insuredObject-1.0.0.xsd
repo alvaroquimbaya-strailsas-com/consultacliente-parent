@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/insuredobject/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/insuredobject/v1"
+	xmlns:pl="http://cardif.bnpparibas.com/lam/schema/coverage/plan/v1"
+	xmlns:pi="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationInsured/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0.0">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/coverage/plan/v1"
+		schemaLocation="../coverage/plan/plan-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationInsured/v1"
+		schemaLocation="../thirdparty/participation/participationInsured-1.0.0.xsd" />
+
+	<xs:element name="InsuredObject" type="tns:InsuredObject_Type"></xs:element>
+
+	<xs:complexType name="InsuredObject_Type">
+		<xs:sequence>
+			<xs:element name="plan" type="pl:Plan_Type" maxOccurs="unbounded"></xs:element>
+			<xs:element name="participationInsured" type="pi:participationInsured_Type"
+				minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

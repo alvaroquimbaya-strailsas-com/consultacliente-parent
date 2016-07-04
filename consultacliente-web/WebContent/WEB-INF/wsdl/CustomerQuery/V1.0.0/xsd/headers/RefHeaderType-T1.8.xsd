@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://ea.assurance.bnpparibas.com/internal/schema/ref/header/v1" xmlns:ns1="http://ea.assurance.bnpparibas.com/internal/schema/ref/header/v1" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ea.assurance.bnpparibas.com/internal/schema/ref/header/v1" version="1.0.0" xml:lang="fr">
+	<xs:complexType name="HeaderSecurityType">
+		<xs:annotation>
+			<xs:documentation>Header du flux XML entrant</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ApplicationId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Identifiant de l'application faisant appel au Web Service</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="Token" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Token d'authentification à l'application</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="LoginName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Nom de l'utilisateur connecté à l'application</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="HeaderSecurity" type="HeaderSecurityType">
+		<xs:annotation>
+			<xs:documentation>Header du flux XML entrant</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

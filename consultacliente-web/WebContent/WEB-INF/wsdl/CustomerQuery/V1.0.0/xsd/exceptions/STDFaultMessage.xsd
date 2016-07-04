@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns="http://ea.assurance.bnpparibas.com/internal/schema/lam/common/exception/v1" 
+attributeFormDefault="unqualified" 
+elementFormDefault="qualified" 
+targetNamespace="http://ea.assurance.bnpparibas.com/internal/schema/lam/common/exception/v1" version="1.0">
+	<!--version V2.0.0 (23/09/2011, Damien Tasteyre) : initialisation-->
+	<xs:complexType name="errorMessageType">
+		<xs:sequence>
+			<xs:element name="code">
+				<xs:annotation>
+					<xs:documentation>Code de l'erreur</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="severity">
+				<xs:annotation>
+					<xs:documentation>Type d'erreur: critical, error, warning </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="timestamp" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Horodatage de l'erreur</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="actor">
+				<xs:annotation>
+					<xs:documentation>Identifiant technique de la chaine emettrice de l'erreur</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="description">
+				<xs:annotation>
+					<xs:documentation>Description courte</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="detail">
+				<xs:annotation>
+					<xs:documentation>Description longue</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="lang">
+				<xs:annotation>
+					<xs:documentation>langue pour les messages</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="reasons">
+				<xs:annotation>
+					<xs:documentation>tableau des erreurs d'origine (stack)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="reason" type="errorMessageType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="params">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" minOccurs="0" name="param">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="paramCode" nillable="false">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="20"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="paramValue" nillable="false">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="200"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TechnicalBaseFaultType">
+		<xs:annotation>
+			<xs:documentation>Erreurs techniques</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="errorMessageType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="TechFault" type="TechnicalBaseFaultType">
+		<xs:annotation>
+			<xs:documentation>Erreurs techniques</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="FunctionalBaseFaultType">
+		<xs:annotation>
+			<xs:documentation>Erreurs Fonctionnelles</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="errorMessageType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="FuncFault" type="FunctionalBaseFaultType">
+		<xs:annotation>
+			<xs:documentation>Erreurs Fonctionnelles</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

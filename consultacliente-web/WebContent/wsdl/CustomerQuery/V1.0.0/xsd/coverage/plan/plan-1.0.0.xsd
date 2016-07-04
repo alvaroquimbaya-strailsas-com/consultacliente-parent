@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/coverage/plan/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/coverage/plan/v1" 
+	xmlns:cv="http://cardif.bnpparibas.com/lam/schema/coverage/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="1.0.0">
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/coverage/v1"
+		schemaLocation="../coverage-1.0.0.xsd" />
+
+	<xs:element name="Plan" type="tns:Plan_Type"></xs:element>
+	<xs:complexType name="Plan_Type">
+		<xs:sequence>
+			<xs:element name="coverages" type="cv:coverage_Type" maxOccurs="unbounded">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

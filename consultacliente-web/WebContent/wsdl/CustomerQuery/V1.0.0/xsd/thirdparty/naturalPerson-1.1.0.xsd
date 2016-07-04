@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bpnparibas.com/lam/schema/thirdparty/naturalPerson/v1"
+	xmlns:tns="http://cardif.bpnparibas.com/lam/schema/thirdparty/naturalPerson/v1"
+	xmlns:tpdt="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyDocumentType/v1"
+	xmlns:tp="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/thirdPartyDocumentType/v1"
+		schemaLocation="thirdPartyDocumentType-1.0.0.xsd" />
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/v1"
+		schemaLocation="thirdparty-1.1.0.xsd" />
+
+	<xs:element name="naturalPerson" type="tns:naturalPerson_Type"></xs:element>
+
+	<xs:complexType name="naturalPerson_Type">
+		<xs:complexContent>
+			<xs:extension base="tp:ThirdParty_Type">
+				<xs:sequence>
+					<xs:element name="birthDate" type="xs:date" minOccurs="0"></xs:element>
+					<xs:element name="birthPlaceName" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="deathDate" type="xs:date" minOccurs="0"></xs:element>
+					<xs:element name="firstName" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="genderType" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="middleName" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="motherName" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="surName" type="xs:string" minOccurs="0"></xs:element>
+					<xs:element name="thirdPartyDocumentType" type="tpdt:thirdPartyDocumentType_Type"
+						minOccurs="0"></xs:element>	
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

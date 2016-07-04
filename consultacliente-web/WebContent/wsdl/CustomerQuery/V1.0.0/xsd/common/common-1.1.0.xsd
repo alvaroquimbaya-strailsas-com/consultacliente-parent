@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by BNP PARIBAS ASSURANCE (BNP PARIBAS ASSURANCE) -->
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/common/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cardif.bnpparibas.com/lam/schema/common/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Email_Type">
+		<xs:sequence>
+			<xs:element name="emailIdentifier" type="xs:unsignedLong" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique identifier for email</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="emailType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Email type: personal Or corporate</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="personal"/>
+						<xs:enumeration value="corporate"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="email">
+				<xs:annotation>
+					<xs:documentation>email address</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Email" type="tns:Email_Type">
+		<xs:annotation>
+			<xs:documentation>Email Address Information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Identity_Type">
+		<xs:sequence>
+			<xs:element name="documentType">
+				<xs:annotation>
+					<xs:documentation>Unique identifier of Document Type: RUT, DNI, RG, Passport</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedLong">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="documentNumber">
+				<xs:annotation>
+					<xs:documentation>Document Number</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Identity" type="tns:Identity_Type">
+		<xs:annotation>
+			<xs:documentation>Identification Information (Document Type ID and Document Number)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="BankReference_Type">
+		<xs:sequence>
+			<xs:element name="bankNumber" type="xs:long" minOccurs="0"/>
+			<xs:element name="bankName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BankReference" type="tns:BankReference_Type">
+		<xs:annotation>
+			<xs:documentation>Bank information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Currency_Type">
+		<xs:sequence>
+			<xs:element name="currencyIdentifier" type="xs:integer" minOccurs="0"/>
+			<xs:element name="currencyName" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Currency" type="tns:Currency_Type">
+		<xs:annotation>
+			<xs:documentation>Currency information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Phone_Type">
+		<xs:sequence>
+			<xs:element name="phoneIdentifier" type="xs:unsignedLong" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phone unique identifier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="phoneType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Phone Type: residential, commercial, office, billing</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="residential"/>
+						<xs:enumeration value="commercial"/>
+						<xs:enumeration value="office"/>
+						<xs:enumeration value="billing"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="countryCode" type="xs:unsignedInt" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Country phone code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="areaCode" type="xs:unsignedInt" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>area code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="phoneNumber" type="xs:unsignedLong">
+				<xs:annotation>
+					<xs:documentation>phone number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Phone" type="tns:Phone_Type">
+		<xs:annotation>
+			<xs:documentation>Telephone Information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+<!-- 	<xs:complexType name="Address_Type"> -->
+<!-- 		<xs:sequence> -->
+<!-- 			<xs:element name="addressIdentifier" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address unique identifier</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:unsignedLong"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressType" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address type: residential, office, billing, commercial, delivery</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 						<xs:enumeration value="residential"/> -->
+<!-- 						<xs:enumeration value="office"/> -->
+<!-- 						<xs:enumeration value="billing"/> -->
+<!-- 						<xs:enumeration value="commercial"/> -->
+<!-- 						<xs:enumeration value="delivery"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressName" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address Name </xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressDetail" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>More details for the address</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressNumber" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address number</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressReference" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address reference for helping location</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element name="addressPostalCode" nillable="true" minOccurs="0"> -->
+<!-- 				<xs:annotation> -->
+<!-- 					<xs:documentation>Address postal Code</xs:documentation> -->
+<!-- 				</xs:annotation> -->
+<!-- 				<xs:simpleType> -->
+<!-- 					<xs:restriction base="xs:string"> -->
+<!-- 						<xs:whiteSpace value="collapse"/> -->
+<!-- 					</xs:restriction> -->
+<!-- 				</xs:simpleType> -->
+<!-- 			</xs:element> -->
+<!-- 			<xs:element ref="tns:City" minOccurs="0"/> -->
+<!-- 			<xs:element ref="tns:State" minOccurs="0"/> -->
+<!-- 			<xs:element ref="tns:District" minOccurs="0"/> -->
+<!-- 			<xs:element ref="tns:Country" minOccurs="0"/> -->
+<!-- 		</xs:sequence> -->
+<!-- 	</xs:complexType> -->
+	<xs:complexType name="Properties">
+		<xs:sequence>
+			<xs:element name="Property" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="name">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:whiteSpace value="collapse"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="value">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:whiteSpace value="collapse"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="type">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:whiteSpace value="collapse"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+<!-- 	<xs:element name="Address" type="tns:Address_Type"> -->
+<!-- 		<xs:annotation> -->
+<!-- 			<xs:documentation>Address Information</xs:documentation> -->
+<!-- 		</xs:annotation> -->
+<!-- 	</xs:element> -->
+	<xs:complexType name="Id_Name_Type">
+		<xs:sequence>
+			<xs:element name="identifier" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>unique identifier</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:unsignedLong">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>name</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="City" type="tns:Id_Name_Type" nillable="true">
+		<xs:annotation>
+			<xs:documentation>City information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="State" type="tns:Id_Name_Type" nillable="true">
+		<xs:annotation>
+			<xs:documentation>State Information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="District" type="tns:Id_Name_Type" nillable="true">
+		<xs:annotation>
+			<xs:documentation>District information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Country" type="tns:Id_Name_Type" nillable="true">
+		<xs:annotation>
+			<xs:documentation>Country information</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

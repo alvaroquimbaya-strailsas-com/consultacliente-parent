@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema targetNamespace="http://cardif.bnpparibas.com/lam/schema/common/planOption/v1" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://cardif.bnpparibas.com/lam/schema/common/planOption/v1" 
+elementFormDefault="qualified" 
+attributeFormDefault="unqualified">
+
+    <xs:element name="PlanOption" type="tns:PlanOption_Type">
+    <xs:annotation>
+			<xs:documentation>Root element for planOption attributes</xs:documentation>
+	</xs:annotation>
+    </xs:element>
+    <xs:complexType name="PlanOption_Type">
+    	<xs:sequence>
+    		<xs:element name="code" type="xs:integer" minOccurs="0">
+    		<xs:annotation>
+					<xs:documentation></xs:documentation>
+				</xs:annotation>
+    		</xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+</xs:schema>

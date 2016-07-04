@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/role/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/role/v1"
+	xmlns:rlt="http://cardif.bnpparibas.com/lam/schema/common/roleType/v1"
+	elementFormDefault="unqualified">
+
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/common/roleType/v1"
+	schemaLocation="../common/roleType-1.0.0.xsd"/>
+	
+	<xs:element name="role" type="tns:Role_Type"></xs:element>
+
+
+	<xs:complexType name="Role_Type">
+		<xs:sequence>
+		<xs:element name="roleType" type="rlt:RoleType_Type"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

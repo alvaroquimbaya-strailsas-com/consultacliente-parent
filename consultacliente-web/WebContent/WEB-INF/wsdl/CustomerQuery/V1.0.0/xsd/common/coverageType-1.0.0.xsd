@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1" 
+xmlns:tns="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1" 
+	elementFormDefault="qualified">
+
+    <element name="CoverageType" type="tns:CoverageType_Type"></element>
+    
+    <complexType name="CoverageType_Type">
+    	<sequence>
+    		<element name="code" type="integer" minOccurs="0"></element>
+    		<element name="description" type="string" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+</schema>

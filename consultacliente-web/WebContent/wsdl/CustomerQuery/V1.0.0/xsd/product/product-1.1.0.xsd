@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/product/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/product/v1"
+	elementFormDefault="unqualified">
+
+	<xs:element name="product" type="tns:Product_Type"></xs:element>
+
+	<xs:complexType name="Product_Type">
+		<xs:sequence>
+			<xs:element name="productName" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="productLegalRegstrtnNb" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="productMigratedIndic" type="xs:boolean" minOccurs="0"></xs:element>
+			<xs:element name="productDeudorIndic" type="xs:boolean" minOccurs="0"></xs:element>
+			<xs:element name="subscriberEntryMaxAge" type="xs:decimal" minOccurs="0"></xs:element>
+			<xs:element name="subscriberEntryMinAge" type="xs:decimal" minOccurs="0"></xs:element>
+			<xs:element name="incapacityMinimumQty" type="xs:decimal" minOccurs="0"></xs:element>
+			<xs:element name="incapacityMaximumQty" type="xs:decimal" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

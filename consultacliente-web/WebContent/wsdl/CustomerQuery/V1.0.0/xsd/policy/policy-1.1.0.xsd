@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/policy/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/policy/v1"
+	xmlns:poptn="http://cardif.bnpparibas.com/lam/schema/common/planOption/v1"
+	xmlns:ppty="http://cardif.bnpparibas.com/lam/schema/common/premiumPeriodicity/v1"
+	xmlns:ps="http://cardif.bnpparibas.com/lam/schema/common/policyState/v1"
+	xmlns:ur="http://cardif.bnpparibas.com/lam/schema/riskunit/v1"
+	xmlns:psct="http://cardif.bnpparibas.com/lam/schema/common/policySaleChannelType/v1"
+	xmlns:pp="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationPartner/v1"
+	xmlns:ppp="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationPremiumPayer/v1"
+	xmlns:pb="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationBroker/v1"
+	xmlns:pps="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationSeller/v1"
+	xmlns:ppsr="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationSuscriber/v1"
+	xmlns:pc="http://cardif.bnpparibas.com/lam/schema/financialmovement/paymentComponent/v1"
+	xmlns:evt="http://cardif.bnpparibas.com/lam/schema/lifecycle/event/v1"
+	xmlns:prd="http://cardif.bnpparibas.com/lam/schema/product/v1"
+	xmlns:up="http:cardif.bnpaparibas.com/lam/schema/common/fileUpload/v1"
+
+
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.1.0">
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/common/planOption/v1"
+		schemaLocation="../common/planOption-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/common/policyState/v1"
+		schemaLocation="../common/policyState-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/common/premiumPeriodicity/v1"
+		schemaLocation="../common/premiumPeriodicity-1.0.0.xsd" />
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/riskunit/v1"
+		schemaLocation="../riskunit/riskunit-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/common/policySaleChannelType/v1"
+		schemaLocation="../common/policySaleChannelType-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationPartner/v1"
+		schemaLocation="../thirdparty/participation/participationPartner-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationPremiumPayer/v1"
+		schemaLocation="../thirdparty/participation/participationPremiumPayer-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationBroker/v1"
+		schemaLocation="../thirdparty/participation/participationBroker-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationSeller/v1"
+		schemaLocation="../thirdparty/participation/participationSeller-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationSuscriber/v1"
+		schemaLocation="../thirdparty/participation/participationSuscriber-1.0.0.xsd" />
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/financialmovement/paymentComponent/v1"
+		schemaLocation="../financialmovement/paymentComponent-1.0.0.xsd" />
+
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/lifecycle/event/v1"
+		schemaLocation="../lifecycle/event/event-1.0.0.xsd"></xs:import>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/product/v1" 
+	schemaLocation="../product/product-1.1.0.xsd"></xs:import>
+	<xs:import namespace="http:cardif.bnpaparibas.com/lam/schema/common/fileUpload/v1" 
+	schemaLocation="../common/fileUpload-1.0.0.xsd"></xs:import>
+
+	<xs:element name="Policy" type="tns:Policy_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Root element for policy attributes
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Policy_Type">
+		<xs:sequence>
+
+			<xs:element name="product" type="prd:Product_Type" minOccurs="0">
+			</xs:element>
+			<xs:element name="policyPartnerProdCode" type="xs:string"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="policyNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">
+						Policy Identifier
+					</xs:documentation>
+					<xs:documentation xml:lang="es">
+						Identificador de la
+						Poliza
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="policyStartDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="policyEndDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="policySubscriptionDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="policyDurationDays" type="xs:decimal"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="planOption" type="poptn:PlanOption_Type"
+				minOccurs="0" />
+			<xs:element name="policyState" type="ps:PolicyState_Type"
+				minOccurs="0">
+			</xs:element>
+			<xs:element name="premiumPeriodicity" type="ppty:PremiumPeriodicity_Type"
+				minOccurs="0" />
+			<xs:element name="riskUnit" type="ur:RiskUnit_Type"
+				maxOccurs="unbounded" />
+
+			<xs:element name="policySaleChannelType" type="psct:policySaleChannelType_Type"
+				minOccurs="0"></xs:element>
+			<xs:element name="policySellerName" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="policyCashierDeskCode" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="policyPartnerShopName" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="policyPartnerShopCode" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="partnerParticipations" type="pp:participationPartner_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="premiumPayerParticipations" type="ppp:participationPremiumPayer_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="brokerParticipations" type="pb:participationbroker_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="sellerParticipations" type="pps:participationSeller_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="subscriberParticipations" type="ppsr:participationSuscriber_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="source" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="paymentComponent" type="pc:PaymentComponent_Type"
+				maxOccurs="unbounded"></xs:element>
+			<xs:element name="ipc" type="xs:string" minOccurs="0"></xs:element>
+			<xs:element name="fileUpload" type="up:FileUpload_Type" minOccurs="0"></xs:element>
+			<xs:element name="efectiveBills" type="xs:integer"
+				minOccurs="0"></xs:element>
+			<xs:element name="condicionalPolicyVersion" type="xs:string" minOccurs="0"></xs:element>
+			
+			<xs:element name="CoverageDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FirstBillsDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="referenceReversion" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="LastBillsDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="reverseBills" type="xs:integer"
+				minOccurs="0"></xs:element>
+			<xs:element name="sentReversionDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="confirmReversionDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="monthsPastDue" type="xs:decimal"
+				minOccurs="0"></xs:element>
+			<xs:element name="stateDue" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

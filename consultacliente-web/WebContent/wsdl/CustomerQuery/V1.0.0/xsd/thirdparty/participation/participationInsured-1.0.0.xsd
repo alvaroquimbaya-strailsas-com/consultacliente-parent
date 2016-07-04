@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationInsured/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationInsured/v1"
+	xmlns:iopt="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/insuredObjectParticipation/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/insuredObjectParticipation/v1"
+		schemaLocation="insuredObjectParticipation-1.0.0.xsd"></xs:import>
+
+	<xs:element name="participationInsured" type="tns:participationInsured_Type"></xs:element>
+
+	<xs:complexType name="participationInsured_Type">
+		<xs:complexContent>
+			<xs:extension base="iopt:insuredObjectParticipation_Type">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

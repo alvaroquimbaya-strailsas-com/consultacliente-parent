@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by BNP PARIBAS 
+	ASSURANCE (BNP PARIBAS ASSURANCE) -->
+<xs:schema
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/customerquery_schematypes/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cmm="http://cardif.bnpparibas.com/lam/schema/common/v1"
+	xmlns:ru="http://cardif.bnpparibas.com/lam/schema/RiskUnit/RiskUnitLoan/v1"
+	xmlns:pol="http://cardif.bnpparibas.com/lam/schema/policy/v1"
+	xmlns:prd="http://cardif.bnpparibas.com/lam/schema/product/v1"
+	xmlns:prtn="http://cardif.bnpparibas.com/lam/schema/role/partner/v1"
+	xmlns:cov="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/RiskUnit/RiskUnitLoan/v1"
+		schemaLocation="../riskunit/RiskUnitLoan-1.0.0.xsd"></xs:import>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/policy/v1"
+		schemaLocation="../policy/policy-1.1.0.xsd"></xs:import>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/common/v1"
+		schemaLocation="../common/common-1.1.0.xsd"></xs:import>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/product/v1"
+		schemaLocation="../product/product-1.1.0.xsd"></xs:import>
+	<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/role/partner/v1"
+		schemaLocation="../role/partner-1.0.0.xsd"></xs:import>
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/common/coverageType/v1"
+		schemaLocation="../common/coverageType-1.0.0.xsd"></xs:import>
+	
+	<xs:complexType name="CustomerQueryByLoanNb_INType">
+		<xs:sequence>
+			<xs:element ref="ru:RiskUnitLoan" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryByLoanNb_OUTType">
+		<xs:sequence>
+			<xs:element ref="pol:Policy" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="CustomerQueryByPolicyNb_INType">
+		<xs:sequence>
+			<xs:element name="policyNumber" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryByPolicyNb_OUTType">
+		<xs:sequence>
+			<xs:element ref="pol:Policy" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryByPersonAndPrdCardif_INType">
+		<xs:sequence>
+			<xs:element ref="cmm:Identity" />
+			<xs:element ref="prd:product"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryByPersonAndPrdCardif_OUTType">
+		<xs:sequence>
+			<xs:element ref="pol:Policy" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryParameters_INType">
+		<xs:sequence>
+			<xs:element ref="prtn:partner"></xs:element>
+			<xs:element ref="cmm:Identity" />
+			<xs:element ref="cov:CoverageType"></xs:element>
+			<xs:element ref="prd:product"></xs:element>
+			<xs:element name="eventDate" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:date">
+						<xs:whiteSpace value="collapse" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CustomerQueryParameters_OUTType">
+		<xs:sequence>
+			<xs:element ref="pol:Policy" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

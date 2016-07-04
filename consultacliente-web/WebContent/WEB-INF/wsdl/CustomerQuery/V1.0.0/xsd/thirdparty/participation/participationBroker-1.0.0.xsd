@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationBroker/v1"
+	xmlns:tns="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/participationBroker/v1"
+	xmlns:pp="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/policyParticipation/v1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:import
+		namespace="http://cardif.bnpparibas.com/lam/schema/thirdparty/participation/policyParticipation/v1"
+		schemaLocation="policyParticipation-1.0.0.xsd"></xs:import>
+
+	<xs:element name="participationbroker" type="tns:participationbroker_Type"></xs:element>
+
+	<xs:complexType name="participationbroker_Type">
+		<xs:complexContent>
+			<xs:extension base="pp:policyParticipation_Type">
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

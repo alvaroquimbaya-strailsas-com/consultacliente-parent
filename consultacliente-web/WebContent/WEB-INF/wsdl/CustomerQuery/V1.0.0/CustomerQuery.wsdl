@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="customerquery" targetNamespace="http://ea.assurance.bnpparibas.com/internal/service/lam/customerquery/v1" xmlns="http://ea.assurance.bnpparibas.com/internal/service/lam/customerquery/v1" xmlns:exception="http://ea.assurance.bnpparibas.com/internal/schema/lam/common/exception/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cardif.bnpparibas.com/lam/schema/customerquery_schematypes/v1" xmlns:header="http://ea.assurance.bnpparibas.com/internal/schema/ref/header/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:documentation>v1.0.0</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ea.assurance.bnpparibas.com/internal/service/lam/customerquery/v1">
+			<xs:import namespace="http://cardif.bnpparibas.com/lam/schema/customerquery_schematypes/v1" schemaLocation="xsd/specificContractTypes/CustomerQuery_SchemaTypes.xsd"/>
+			<xs:import namespace="http://ea.assurance.bnpparibas.com/internal/schema/ref/header/v1" schemaLocation="xsd/headers/RefHeaderType-T1.8.xsd"/>
+			<xs:import namespace="http://ea.assurance.bnpparibas.com/internal/schema/lam/common/exception/v1" schemaLocation="xsd/exceptions/STDFaultMessage.xsd"/>
+
+			<xs:element name="CustomerQueryByLoanNb_IN" type="tns:CustomerQueryByLoanNb_INType"/>
+			<xs:element name="CustomerQueryByLoanNb_OUT" type="tns:CustomerQueryByLoanNb_OUTType"/>
+			<xs:element name="CustomerQueryByPolicyNb_IN" type="tns:CustomerQueryByPolicyNb_INType"/>
+			<xs:element name="CustomerQueryByPolicyNb_OUT" type="tns:CustomerQueryByPolicyNb_OUTType"/>
+			<xs:element name="CustomerQueryByPersonAndPrdCardif_IN" type="tns:CustomerQueryByPersonAndPrdCardif_INType"/>
+			<xs:element name="CustomerQueryByPersonAndPrdCardif_OUT" type="tns:CustomerQueryByPersonAndPrdCardif_OUTType"/>
+			<xs:element name="CustomerQueryParameters_IN" type="tns:CustomerQueryParameters_INType"/>
+			<xs:element name="CustomerQueryParameters_OUT" type="tns:CustomerQueryParameters_OUTType"/>
+			<xs:element name="TechFault" type="exception:TechnicalBaseFaultType"/>
+			<xs:element name="FuncFault" type="exception:FunctionalBaseFaultType"/>
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="FuncFaultMessage">
+    <wsdl:part name="parameter" element="FuncFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByLoanNbResponse">
+    <wsdl:part name="customerQueryByLoanNbOutput" element="CustomerQueryByLoanNb_OUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByPersonAndPrdCardifResponse">
+    <wsdl:part name="customerQueryByPersonAndPrdCardifOutput" element="CustomerQueryByPersonAndPrdCardif_OUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SecurityInfo">
+    <wsdl:part name="securityToken" element="header:HeaderSecurity">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryParametersRequest">
+    <wsdl:part name="CustomerQueryParametersInput" element="CustomerQueryParameters_IN">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByLoanNbRequest">
+    <wsdl:part name="customerQueryByLoanNbInput" element="CustomerQueryByLoanNb_IN">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByPolicyNbResponse">
+    <wsdl:part name="customerQueryByPolicyNbOutput" element="CustomerQueryByPolicyNb_OUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TechFaultMessage">
+    <wsdl:part name="parameter" element="TechFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryParametersResponse">
+    <wsdl:part name="CustomerQueryParametersOutput" element="CustomerQueryParameters_OUT">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByPolicyNbRequest">
+    <wsdl:part name="customerQueryByPolicyNbInput" element="CustomerQueryByPolicyNb_IN">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CustomerQueryByPersonAndPrdCardifRequest">
+    <wsdl:part name="customerQueryByPersonAndPrdCardifInput" element="CustomerQueryByPersonAndPrdCardif_IN">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerQueryPort">
+    <wsdl:operation name="customerQueryByLoanNb">
+      <wsdl:input message="CustomerQueryByLoanNbRequest">
+    </wsdl:input>
+      <wsdl:output message="CustomerQueryByLoanNbResponse">
+    </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage" message="FuncFaultMessage">
+    </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage" message="TechFaultMessage">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryByPolicyNb">
+      <wsdl:input message="CustomerQueryByPolicyNbRequest">
+    </wsdl:input>
+      <wsdl:output message="CustomerQueryByPolicyNbResponse">
+    </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage" message="FuncFaultMessage">
+    </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage" message="TechFaultMessage">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryByPersonAndPrdCardif">
+      <wsdl:input message="CustomerQueryByPersonAndPrdCardifRequest">
+    </wsdl:input>
+      <wsdl:output message="CustomerQueryByPersonAndPrdCardifResponse">
+    </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage" message="FuncFaultMessage">
+    </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage" message="TechFaultMessage">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryParameters">
+      <wsdl:input message="CustomerQueryParametersRequest">
+    </wsdl:input>
+      <wsdl:output message="CustomerQueryParametersResponse">
+    </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage" message="FuncFaultMessage">
+    </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage" message="TechFaultMessage">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerQueryBinding" type="CustomerQueryPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="customerQueryByLoanNb">
+      <soap:operation soapAction="http://ea.assurance.bnpparibas.com/internal/service/lam/paymentintegration/v1/customerQueryByLoanNb"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage">
+        <soap:fault name="FuncFaultMessage" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage">
+        <soap:fault name="TechFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryByPolicyNb">
+      <soap:operation soapAction="http://ea.assurance.bnpparibas.com/internal/service/lam/paymentintegration/v1/customerQueryByPolicyNb"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage">
+        <soap:fault name="FuncFaultMessage" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage">
+        <soap:fault name="TechFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryByPersonAndPrdCardif">
+      <soap:operation soapAction="http://ea.assurance.bnpparibas.com/internal/service/lam/paymentintegration/v1/customerQueryByPersonAndPrdCardif"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage">
+        <soap:fault name="FuncFaultMessage" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage">
+        <soap:fault name="TechFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="customerQueryParameters">
+      <soap:operation soapAction="http://ea.assurance.bnpparibas.com/internal/service/lam/paymentintegration/v1/customerQueryParameters"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FuncFaultMessage">
+        <soap:fault name="FuncFaultMessage" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="TechFaultMessage">
+        <soap:fault name="TechFaultMessage" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerQueryService">
+    <wsdl:port name="WSCustomerQueryPort" binding="CustomerQueryBinding">
+      <soap:address location="http://localhost:9080/consultacliente-web/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
