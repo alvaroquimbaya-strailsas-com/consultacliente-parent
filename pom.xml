@@ -20,9 +20,9 @@
 				<version>3.0.1</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.ejb</groupId>
-				<artifactId>javax.ejb-api</artifactId>
-				<version>3.2</version>
+			 <groupId>javax.ejb</groupId>
+			    <artifactId>ejb-api</artifactId>
+			    <version>3.0</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.persistence</groupId>
