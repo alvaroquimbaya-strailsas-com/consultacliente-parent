@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "CustomerQueryService", 
-                  wsdlLocation = "file:/C:/Fuentes_Cardif/consultacliente-parent/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl",
+                  wsdlLocation = "http://localhost/9080/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl",
                   targetNamespace = "http://ea.assurance.bnpparibas.com/internal/service/lam/customerquery/v1") 
 public class CustomerQueryService extends Service {
 
@@ -26,11 +26,11 @@ public class CustomerQueryService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("file:/C:/Fuentes_Cardif/consultacliente-parent/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl");
+            url = new URL("http://localhost/9080/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(CustomerQueryService.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "file:/C:/Fuentes_Cardif/consultacliente-parent/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl");
+                     "Can not initialize the default wsdl from {0}", "http://localhost/9080/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl");
         }
         WSDL_LOCATION = url;
     }

@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
                       serviceName = "CustomerQueryService",
                       portName = "WSCustomerQueryPort",
                       targetNamespace = "http://ea.assurance.bnpparibas.com/internal/service/lam/customerquery/v1",
-                      wsdlLocation = "file:/C:/Fuentes_Cardif/consultacliente-parent/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl",
+                      wsdlLocation = "http://localhost/9080/consultacliente-web/WebContent/wsdl/CustomerQuery/V1.0.0/CustomerQuery.wsdl",
                       endpointInterface = "com.bnpparibas.assurance.ea.internal.service.lam.customerquery.v1.CustomerQueryPort")
                       
 public class WSCustomerQueryPortImpl implements CustomerQueryPort {

@@ -156,5 +156,8 @@ public class ConsultaClientePims implements Serializable {
 	private String fuente;
 	//
 	
-	
+	public String get_oficina_venta()
+	{
+		return this.oficina_venta;
+	}
 }
