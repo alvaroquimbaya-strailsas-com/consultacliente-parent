@@ -15,6 +15,8 @@ public class TechFaultMessage extends Exception {
     
     private com.bnpparibas.assurance.ea.internal.schema.lam.common.exception.v1.TechnicalBaseFaultType techFault;
 
+    static final long serialVersionUID  = 0 ;
+    
     public TechFaultMessage() {
         super();
     }

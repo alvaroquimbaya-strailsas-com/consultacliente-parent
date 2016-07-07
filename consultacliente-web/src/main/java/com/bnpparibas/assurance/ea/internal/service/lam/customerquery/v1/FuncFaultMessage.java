@@ -14,6 +14,8 @@ import javax.xml.ws.WebFault;
 public class FuncFaultMessage extends Exception {
     
     private com.bnpparibas.assurance.ea.internal.schema.lam.common.exception.v1.FunctionalBaseFaultType funcFault;
+    
+    static final long serialVersionUID  = 0 ;
 
     public FuncFaultMessage() {
         super();
